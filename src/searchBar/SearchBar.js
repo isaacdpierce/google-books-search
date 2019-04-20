@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
             />
           </fieldset>
 
-          <SearchOptions />
+          <SearchOptions updateSearchOptions={this.props.updateSearchOptions} />
 
           <button onClick={e => this.props.handleSubmit(e)}>Search</button>
         </form>

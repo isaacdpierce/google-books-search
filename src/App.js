@@ -8,9 +8,9 @@ class App extends Component {
     this.state = {
       books: [],
       searchTerm: '',
-      type: 'ebooks',
-      print: 'all',
-      errors: null,
+      type: '',
+      print: '',
+      error: null,
     };
   }
 
@@ -34,6 +34,7 @@ class App extends Component {
 
     fetch(url)
       .then(res => {
+        console.log(res);
         if (!res.ok) {
           throw new Error('Something went wrong, please try again later.');
         }
@@ -41,12 +42,19 @@ class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
+        console.log(data.totalItems);
+
+        if (data.totalItems === 0) {
+          throw new Error('There were no results for your search');
+        }
         this.setState({
           books: [...data.items],
           error: null,
         });
       })
       .catch(err => {
+        console.log(err);
+
         this.setState({
           error: err.message,
         });
@@ -55,6 +63,17 @@ class App extends Component {
 
   updateSearchTerm(term) {
     this.setState({ searchTerm: term });
+  }
+
+  updateSearchOptions(id, value) {
+    id === 'book-type' &&
+      this.setState({
+        type: value,
+      });
+    id === 'print-type' &&
+      this.setState({
+        print: value,
+      });
   }
 
   render() {
@@ -83,6 +102,9 @@ class App extends Component {
         <SearchBar
           searchTerm={this.state.searchTerm}
           handleUpdate={term => this.updateSearchTerm(term)}
+          updateSearchOptions={(type, option) =>
+            this.updateSearchOptions(type, option)
+          }
           handleSubmit={event => this.handleClick(event)}
         />
         <ul>{books}</ul>
