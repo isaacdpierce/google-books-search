@@ -14,6 +14,7 @@ export default class SearchBar extends Component {
               id='search__input'
               defaultValue={this.props.searchTerm}
               onChange={e => this.props.handleUpdate(e.target.value)}
+              required
             />
           </fieldset>
 

@@ -9,7 +9,6 @@ export default class SearchOptions extends Component {
         <select
           className='search-options__type'
           id='book-type'
-          ref='type'
           onChange={e =>
             this.props.updateSearchOptions(e.target.id, e.target.value)
           }

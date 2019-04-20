@@ -15,6 +15,12 @@ body {
   text-align: center;
 }
 
+label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -32,24 +38,27 @@ code {
   font-size: 1rem;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  background-color: rgb(63, 60, 60);
+  background-color: rgb(36, 36, 36);
   padding: 2rem;
+  margin-bottom: 6rem;
+}
+
+fieldset {
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: rgb(57, 57, 57);
 }
 
 header h1 {
   margin: 0;
 }
 
-li {
-  display: flex;
-  background-color: rgb(159, 159, 159);
-  align-items: center;
-  padding: 6rem;
-  box-shadow: 1px 1px 1px 1px rgb(19, 19, 19);
-  margin-bottom: 1rem;
-}
-
 .book-header {
   width: 50vw;
   align-self: center;
+}
+
+.error-message {
+  color: rgb(254, 0, 0);
+  text-shadow: 1px 1px 1px black;
 }
