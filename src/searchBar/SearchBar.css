@@ -1,0 +1,24 @@
+.search {
+  background-color: gray;
+  width: 100vw;
+  padding: 2rem 0;
+}
+.search__field {
+  background-color: rgb(147, 147, 147);
+  margin-bottom: 1rem;
+}
+
+label {
+  padding: 1rem;
+}
+input {
+  width: 15vw;
+  padding: 0.5rem;
+}
+
+button {
+  font-size: inherit;
+  padding: 0.5rem 2rem;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 1px rgb(58, 58, 58);
+}
